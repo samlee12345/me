@@ -1,0 +1,267 @@
+/* styles/notes-tool.css
+ * Styles for the portfolio inline annotation tool.
+ * All classes prefixed nt- to avoid conflicts.
+ */
+
+/* ── Toolbar ──────────────────────────────────────────────────────────────── */
+#nt-toolbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(27, 28, 25, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #faf9f4;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.28);
+  user-select: none;
+}
+
+.nt-count {
+  background: #A08FEF;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 1px 7px;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.nt-label {
+  opacity: 0.55;
+}
+
+.nt-btn {
+  appearance: none;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: #A08FEF;
+  color: #fff;
+  line-height: 1.6;
+  transition: opacity 0.12s;
+}
+
+.nt-btn:hover { opacity: 0.8; }
+
+.nt-btn.nt-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(250, 249, 244, 0.8);
+}
+
+.nt-btn.nt-secondary:hover { background: rgba(255, 255, 255, 0.2); }
+
+.nt-btn.nt-active { background: #c25f5f; }
+
+.nt-btn.nt-danger {
+  background: rgba(194, 95, 95, 0.18);
+  color: #c25f5f;
+}
+
+.nt-btn.nt-danger:hover { background: rgba(194, 95, 95, 0.3); opacity: 1; }
+
+.nt-show-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: rgba(250, 249, 244, 0.6);
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nt-show-btn:hover { color: #faf9f4; }
+
+/* ── Select mode ──────────────────────────────────────────────────────────── */
+body.nt-select-mode,
+body.nt-select-mode * {
+  cursor: crosshair !important;
+}
+
+.nt-hovered {
+  outline: 2px solid #A08FEF !important;
+  outline-offset: 3px !important;
+  border-radius: 2px;
+}
+
+/* ── Rail (right margin) ──────────────────────────────────────────────────── */
+.nt-rail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 210px;
+  height: 100vh;
+  z-index: 99990;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.nt-card {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  background: rgba(255, 253, 245, 0.97);
+  border-left: 2px solid #A08FEF;
+  border-radius: 0 3px 3px 0;
+  padding: 5px 8px 5px 8px;
+  max-width: 196px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: all;
+  cursor: pointer;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.67rem;
+  line-height: 1.45;
+  color: #1b1c19;
+  transition: opacity 0.15s, box-shadow 0.12s;
+}
+
+.nt-card:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+}
+
+.nt-card .nt-badge {
+  background: #A08FEF;
+  color: #fff;
+  font-size: 0.58rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.nt-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.nt-card-text {
+  flex: 1;
+  word-break: break-word;
+}
+
+.nt-edit-input {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #A08FEF;
+  border-radius: 3px;
+  padding: 2px 4px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  resize: vertical;
+  color: inherit;
+  background: #fff;
+}
+
+.nt-edit-input:focus { outline: none; }
+
+.nt-delete {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: #c2c6d6;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+  border-radius: 2px;
+  margin-top: -1px;
+}
+
+.nt-delete:hover { color: #737785; }
+
+/* ── Inline markers ───────────────────────────────────────────────────────── */
+.nt-marker {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: #A08FEF;
+  color: #fff;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99991;
+  pointer-events: none;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.22);
+}
+
+/* ── Add popover ──────────────────────────────────────────────────────────── */
+.nt-popover {
+  position: fixed;
+  z-index: 99999;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  width: 280px;
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.2);
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+.nt-popover-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #c2c6d6;
+  border-radius: 4px;
+  padding: 8px;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  resize: vertical;
+  color: #1b1c19;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.nt-popover-input:focus {
+  outline: none;
+  border-color: #A08FEF;
+}
+
+.nt-popover-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+/* ── Small screen: hide rail, keep toolbar and markers ────────────────────── */
+@media (max-width: 900px) {
+  .nt-rail { display: none; }
+}
