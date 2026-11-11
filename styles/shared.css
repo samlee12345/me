@@ -238,7 +238,7 @@ h1, h2, h3, .font-serif {
 
 /* Hero */
 .cs-company       { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:#A08FEF; }
-.cs-hero-title    { font-size:clamp(3.5rem,8vw,7rem); line-height:1.0; font-style:italic; color:#1b1c19; margin:0.5rem 0 2rem; letter-spacing:-0.02em; }
+.cs-hero-title    { font-size:clamp(2.5rem,5vw,4.5rem); max-width:18ch; line-height:1.0; font-style:italic; color:#1b1c19; margin:0.5rem 0 2rem; letter-spacing:-0.02em; }
 .cs-hero-grid     { display:grid; grid-template-columns:1fr auto; gap:4rem; align-items:end; }
 .cs-hero-desc     { font-size:1.2rem; color:#424654; line-height:1.65; }
 .cs-meta          { display:flex; flex-direction:column; gap:0.75rem; white-space:nowrap; }
@@ -388,7 +388,7 @@ h1, h2, h3, .font-serif {
   .cs-grid-3          { grid-template-columns: 1fr; }
 
   .cs-hero-desc       { font-size: 1rem; }
-  .cs-hero-title      { font-size: clamp(2.75rem, 10vw, 4.5rem) !important; }
+  .cs-hero-title      { font-size: clamp(2.25rem, 8vw, 3rem) !important; }
 
   .site-footer        { padding: 2rem 1rem; }
   .site-footer-links  { flex-wrap: wrap; gap: 1rem; }
